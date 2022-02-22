@@ -12,7 +12,7 @@ Link  --> https://lucid.app/lucidchart/45e064d8-54f6-49ad-a168-bca0eff4a7be/edit
 
 ## Evidencia de la ejecución del script
 
-## Integrantes:
-### Paula Buitrago
-### Juan Perez
+### Integrantes:
+#### Paula Buitrago
+#### Juan Perez
 #### Andrés Galvis
