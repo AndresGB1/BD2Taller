@@ -1,0 +1,44 @@
+---------------------------------------------VISTAS--------------------------------------------------------------
+
+/*
+ * Descripción:
+ * Obtener una lista con los productos de los vendedores, su título, descripción discriminados por categoria igual a ropa
+ */
+
+CREATE VIEW total_ventas AS 
+    SELECT p.titulo, p.descripcion  FROM producto AS p 
+    INNER JOIN proveedor AS prov ON p.proveedor = prov.username ;
+
+/*
+ * Descripción:
+ * Obtener una lista de los comentarios de cada producto de un vendedor donde la marca del producto sea Ferrari
+ */  
+CREATE VIEW comentario_product AS
+    SELECT c.* from Comentario AS c
+    INNER JOIN producto AS pro ON pro.id_pro = c.producto;
+
+
+
+---------------------------------------------INDICES--------------------------------------------------------------
+/*
+ * Descripción:
+ * Se crea un índice para cada dirección de envío
+ */
+CREATE INDEX dato_envio ON compra(direccionenvio);
+/*
+ * Descripción:
+ * Se crea un índice para el título de los productos
+ */
+CREATE INDEX titulo_producto ON producto(titulo);
+/*
+ * Descripción:
+ * Se crea un índice para cada tipo de tarjeta de crédito
+ */ 
+CREATE INDEX tipo_tarjeta_credito ON TarCredito(tipo);
+
+
+
+---------------------------------------------PREGUNTAS--------------------------------------------------------------
+
+¿Las vistas que decide crear a qué requerimiento no funcional obedecen? Seguridad o facilidad de consulta. ¿Deberían ser vistas materializadas? Argumente.
+¿Cuáles consultas a la base de datos, a partir de los requerimientos dados, pueden optimizarse mediante índices? ¿De qué tipos deben ser dichos índices? Argumente.
