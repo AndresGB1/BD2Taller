@@ -1,8 +1,8 @@
 ---------------------------------------------VISTAS--------------------------------------------------------------
 
 /*
- * Descripción:
- * Obtener una lista con los productos de los vendedores, su título, descripción discriminados por categoria igual a ropa
+ * DescripciÃ³n:
+ * Obtener una lista con los productos de los vendedores, su tÃ­tulo.
  */
 
 CREATE VIEW total_ventas AS 
@@ -10,8 +10,8 @@ CREATE VIEW total_ventas AS
     INNER JOIN proveedor AS prov ON p.proveedor = prov.username ;
 
 /*
- * Descripción:
- * Obtener una lista de los comentarios de cada producto de un vendedor donde la marca del producto sea Ferrari
+ * DescripciÃ³n:
+ * Obtener una lista de los comentarios de cada producto de un vendedor 
  */  
 CREATE VIEW comentario_product AS
     SELECT c.* from Comentario AS c
@@ -21,18 +21,18 @@ CREATE VIEW comentario_product AS
 
 ---------------------------------------------INDICES--------------------------------------------------------------
 /*
- * Descripción:
- * Se crea un índice para cada dirección de envío
+ * DescripciÃ³n:
+ * Se crea un Ã­ndice para cada direcciÃ³n de envÃ­o
  */
 CREATE INDEX dato_envio ON compra(direccionenvio);
 /*
- * Descripción:
- * Se crea un índice para el título de los productos
+ * DescripciÃ³n:
+ * Se crea un Ã­ndice para el tÃ­tulo de los productos
  */
 CREATE INDEX titulo_producto ON producto(titulo);
 /*
- * Descripción:
- * Se crea un índice para cada tipo de tarjeta de crédito
+ * DescripciÃ³n:
+ * Se crea un Ã­ndice para cada tipo de tarjeta de crÃ©dito
  */ 
 CREATE INDEX tipo_tarjeta_credito ON TarCredito(tipo);
 
@@ -40,5 +40,12 @@ CREATE INDEX tipo_tarjeta_credito ON TarCredito(tipo);
 
 ---------------------------------------------PREGUNTAS--------------------------------------------------------------
 
-¿Las vistas que decide crear a qué requerimiento no funcional obedecen? Seguridad o facilidad de consulta. ¿Deberían ser vistas materializadas? Argumente.
-¿Cuáles consultas a la base de datos, a partir de los requerimientos dados, pueden optimizarse mediante índices? ¿De qué tipos deben ser dichos índices? Argumente.
+Â¿Las vistas que decide crear a quÃ© requerimiento no funcional obedecen? Seguridad o facilidad de consulta. Â¿DeberÃ­an ser vistas materializadas? Argumente.
+
+Las vistas que se crearon anteriormente obedecen hacia requerimientos no funcionales conllevan a la facilidad de consulta, puesto que hace filtraciones de informacion 
+lo cual da la agilidad de encontrar la informaciÃ³n mÃ¡s facilmente, si dberian ser vistastas materializadas ya que mejoran el rendimiento de las consultas, como por ejemplo, reduce la cantidad de datos que se transfieren desde el disco 
+
+
+Â¿CuÃ¡les consultas a la base de datos, a partir de los requerimientos dados, pueden optimizarse mediante Ã­ndices? Â¿De quÃ© tipos deben ser dichos Ã­ndices? Argumente.
+Los indices que se generan son para tener facilidad y optimizar el proceso de busqueda y filtaciÃ³n, estos indices se hicieron de tipo ordenado para lo explicado anteriormente
+
