@@ -4,6 +4,9 @@ Link  --> https://lucid.app/lucidchart/45e064d8-54f6-49ad-a168-bca0eff4a7be/edit
 ### Image
 ![Diagrama en blanco](https://user-images.githubusercontent.com/65428260/155205366-e50783ed-ebe2-4463-9c1f-147a4e0d5094.png)
 
+## Video en youtube
+https://www.youtube.com/watch?v=hdtkpC4RFpw
+
 ## Diccionario de Datos
 DiccionarioBD.clsx
 
