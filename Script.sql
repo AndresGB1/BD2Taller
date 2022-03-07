@@ -1,6 +1,6 @@
 create table ciudad(
 	 ciudad varchar(30) not null primary key unique,
-	 descripción varchar(30)
+	 descripciÃ³n varchar(30)
 );
 
 create table documento(
@@ -15,7 +15,7 @@ create table usuario(
 	 num_documento int not null,
 	 correo varchar(30),
 	 documento int not null,
-	 contraseña varchar(80), 
+	 contraseÃ±a varchar(80), 
 	 direccion varchar(25),
 	 ciudad varchar(10), 
 	 foreign key (documento)
@@ -75,28 +75,29 @@ create table carroCompra(
 	 estado varchar(1),
 	 fecha date
 );
+create table tipoenvio(
+	 tipo varchar(30) not null primary key unique
+);
+
 
 create table compra(
 	 id_compra int not null primary key unique,
 	 direccionEnvio varchar(25),
 	 tipo varchar(30),
 	 metodo varchar(30),
-	 estado varchar(1)
-);
-
-create table tarCredito(
-	 id_numero int not null primary key unique,
-	 tipo varchar(30),
-	 mes date,
-	 expiración int not null,
-	 codigo int not null,
-	 compra int not null,
-	 foreign key (compra)
+	 estado varchar(1),
+	 foreign key (tipo)
+	 references tipoenvio(tipo),
+	 foreign key (id_compra)
 	 references compra(id_compra)
 );
 
-create table tipoEnvio(
-	 tipo varchar(30) not null primary key unique,
+create table tarcredito(
+	 id_numero int not null primary key unique,
+	 tipo varchar(30),
+	 mes date,
+	 expiraciÃ³n int not null,
+	 codigo int not null,
 	 compra int not null,
 	 foreign key (compra)
 	 references compra(id_compra)
