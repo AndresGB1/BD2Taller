@@ -89,7 +89,7 @@ create table compra(
 	 foreign key (tipo)
 	 references tipoenvio(tipo),
 	 foreign key (id_compra)
-	 references compra(id_compra)
+	 references carroCompra(id_carro)
 );
 
 create table tarcredito(
