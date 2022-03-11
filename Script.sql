@@ -66,14 +66,16 @@ create table proveedor(
  	 foreign key(username) references usuario (username)
 	
 );
-
 create table carroCompra(
 	 id_carro int not null primary key unique,
+	 comprador varchar(30),
 	 categoria varchar(30),
 	 marca varchar(10),
 	 cantidad int not null,
 	 estado varchar(1),
-	 fecha date
+	 fecha date,
+	 foreign key (comprador)
+	 references comprador(username)
 );
 create table tipoenvio(
 	 tipo varchar(30) not null primary key unique
@@ -129,3 +131,7 @@ create table variante(
 	 foreign key (carroCompra)
 	 references carroCompra(id_carro)
 );
+
+
+
+
