@@ -1,0 +1,17 @@
+select * from carrocompra
+insert into documento values (0,'Cedula');
+insert into documento values (1,'TI');
+insert into ciudad values ('Bogota','Medellin');
+insert into usuario values ('Andresito','Andres','Galvis',10023949,'Galvisito@hot.com',0,'contraseña123','Calle 102','Bogota');
+insert into usuario values ('Paulita','paula','Buitrago',1000272,'paub@hot.com',0,'contraseña1234','Calle 23','Bogota');
+insert into comprador values ('Andresito','Hola soy andresito');
+insert into proveedor values ('Paulita',1,'Hola soy paulita');
+insert into TipoEnvio values ('Domicilio');
+insert into producto values (0,'carro','toyota','vehiculo','https://www.toyota.com.gt/hubfs/1-15.jpg','carro de 4 puertas y 4 llantas','Paulita');
+insert into producto values (1,'Celular','Xiaomi','Tecnologia','https://i01.appmifile.com/webfile/globalimg/products/pc/mi11/img-header.jpg','celular con 4 de ram y 64 mpx','Paulita');
+insert into producto values (2,'Colchon','Paraiso','Hogar','https://cdn.shopify.com/s/files/1/0446/5590/2886/collections/Mesa_de_trabajo_34_1350x638.jpg?v=1626361575','Colchon comodo','Paulita');
+insert into producto values (3,'Computador','HP','Tecnologia','https://ideakreativa.net/wp-content/uploads/2020/06/computadores-de-mesa-para-disen%CC%83o-1.jpg','Computador con 32 de ram procesador i7 de 10th gen','Paulita');
+insert into carroCompra values (0,'Andresito','D','03/04/2019');
+insert into variante values (0,123,0,'D',23,0,0);
+insert into compra values (0,'Calle14','Domicilio','Efectivo','D')
+insert into tarcredito values (1,'Debito','02/03/2003',034,123,0);
