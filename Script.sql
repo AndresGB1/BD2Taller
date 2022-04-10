@@ -109,8 +109,8 @@ create table producto(
 	 id_pro int not null primary key unique,
 	 titulo varchar(20),
 	 marca varchar(10),
-	 fotos bytea,
 	 categoria varchar(10),
+	 foto varchar(500),
 	 descripcion varchar(50),
 	 proveedor varchar(30),
 	 foreign key (proveedor)
@@ -119,9 +119,9 @@ create table producto(
 	 
 
 create table variante(
-	 numero int not null primary key unique,
+	 codigo int not null primary key unique,
 	 expiracion int not null,
-	 codigo int not null,
+	 color varchar(40),
 	 estado varchar(1),
 	 stock int not null,
 	 producto int not null,
@@ -131,7 +131,6 @@ create table variante(
 	 foreign key (carroCompra)
 	 references carroCompra(id_carro)
 );
-
 
 
 
