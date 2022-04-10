@@ -69,8 +69,6 @@ create table proveedor(
 create table carroCompra(
 	 id_carro int not null primary key unique,
 	 comprador varchar(30),
-	 categoria varchar(30),
-	 marca varchar(10),
 	 cantidad int not null,
 	 estado varchar(1),
 	 fecha date,
@@ -120,17 +118,14 @@ create table producto(
 
 create table variante(
 	 codigo int not null primary key unique,
-	 expiracion int not null,
+     foto varchar(500)[],
 	 color varchar(40),
 	 estado varchar(1),
 	 stock int not null,
 	 producto int not null,
-	 carroCompra int not null,
+	 carroCompra int,
 	 foreign key (producto)
 	 references producto(id_pro),
 	 foreign key (carroCompra)
 	 references carroCompra(id_carro)
 );
-
-
-
