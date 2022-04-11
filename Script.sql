@@ -47,17 +47,6 @@ create table comprador(
 	 
 );
 
-create table comentario(
- 	 id_comentario int not null primary key unique,
-	 direccion varchar(50),
-	 valor int not null,
-	 producto int not null,
-	 comprador varchar(30),
-	 foreign key (comprador)
-	 references comprador(username),
-	 foreign key (comprador)
-	 references comprador(username)
-);
 
 create table proveedor(
 	 username varchar(30) not null primary key unique,
@@ -103,29 +92,49 @@ create table tarcredito(
 	 references compra(id_compra)
 );
 
+
 create table producto(
-	 id_pro int not null primary key unique,
+	 id_producto int not null primary key unique,
 	 titulo varchar(20),
 	 marca varchar(10),
 	 categoria varchar(10),
 	 foto varchar(500),
 	 descripcion varchar(50),
+	 precio int,
 	 proveedor varchar(30),
 	 foreign key (proveedor)
 	 references proveedor(username)
 );
 	 
+create table comentario(
+ 	 id_comentario int not null primary key unique,
+	 direccion varchar(50),
+	 valor int not null,
+	 producto int not null,
+	 comprador varchar(30),
+	 foreign key (comprador)
+	 references comprador(username),
+	 foreign key (producto)
+	 references producto(id_producto)
+);
 
 create table variante(
-	 codigo int not null primary key unique,
+	 id_variante int not null primary key unique,
      foto varchar(500)[],
 	 color varchar(40),
 	 estado varchar(1),
-	 stock int not null,
+	 stock int,
 	 producto int not null,
-	 carroCompra int,
 	 foreign key (producto)
-	 references producto(id_pro),
-	 foreign key (carroCompra)
-	 references carroCompra(id_carro)
+	 references producto(id_producto)
+
 );
+create table item(
+	id_item int not null primary key unique,
+	variante int not null,
+	id_carro int,
+	foreign key (id_carro)
+	references carroCompra(id_carro),
+	foreign key (variante)
+	references variante(id_variante)	
+)
