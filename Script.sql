@@ -47,7 +47,6 @@ create table comprador(
 	 
 );
 
-
 create table proveedor(
 	 username varchar(30) not null primary key unique,
 	 autorizado int not null,
@@ -99,13 +98,13 @@ create table producto(
 	 marca varchar(10),
 	 categoria varchar(10),
 	 foto varchar(500),
+	 stock int,
 	 descripcion varchar(50),
 	 precio int,
 	 proveedor varchar(30),
 	 foreign key (proveedor)
 	 references proveedor(username)
 );
-	 
 create table comentario(
  	 id_comentario int not null primary key unique,
 	 direccion varchar(50),
@@ -117,6 +116,7 @@ create table comentario(
 	 foreign key (producto)
 	 references producto(id_producto)
 );
+	 
 
 create table variante(
 	 id_variante int not null primary key unique,
@@ -127,8 +127,8 @@ create table variante(
 	 producto int not null,
 	 foreign key (producto)
 	 references producto(id_producto)
-
 );
+
 create table item(
 	id_item int not null primary key unique,
 	variante int not null,
