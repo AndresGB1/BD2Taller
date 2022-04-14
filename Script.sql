@@ -96,7 +96,6 @@ create table producto(
 	 id_producto int not null primary key unique,
 	 titulo varchar(20),
 	 marca varchar(10),
-	 categoria varchar(10),
 	 foto varchar(500),
 	 stock int,
 	 descripcion varchar(50),
