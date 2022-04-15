@@ -90,7 +90,14 @@ create table compra(
 	 references carroCompra(id_carro)
 );
 
-
+create table categoria(
+	id_categoria varchar(30) not null primary key
+);
+create table condicion(
+	id_condicion SERIAL primary key,
+	id_categoria varchar(30),
+	id_producto int
+);
 
 
 create table producto(
