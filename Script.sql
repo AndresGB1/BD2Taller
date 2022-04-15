@@ -66,7 +66,13 @@ create table carroCompra(
 create table tipoenvio(
 	 tipo varchar(30) not null primary key unique
 );
-
+create table tarjeta(
+	 id_numero int not null primary key,
+	 tipo varchar(30),
+	 nombre varchar(30),
+	 expiración varchar(30),
+	 cvv int not null
+);
 
 create table compra(
 	 id_compra SERIAL PRIMARY KEY,
@@ -78,19 +84,13 @@ create table compra(
 	 estado varchar(1),
 	 foreign key (tipo)
 	 references tipoenvio(tipo),
-         foreign key (tarjeta)
-	 references tarjeta(tarjeta),
+     foreign key (tarjeta)
+	 references tarjeta(id_numero),
 	 foreign key (id_compra)
 	 references carroCompra(id_carro)
 );
 
-create table tarjeta(
-	 id_numero int not null primary key,
-	 tipo varchar(30),
-	 nombre varchar(30),
-	 expiración varchar(30),
-	 cvv int not null,
-);
+
 
 
 create table producto(
@@ -138,4 +138,4 @@ create table item(
 	references carroCompra(id_carro),
 	foreign key (variante)
 	references variante(id_variante)	
-)
+);
