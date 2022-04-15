@@ -55,7 +55,7 @@ create table proveedor(
 	
 );
 create table carroCompra(
-	 id_carro int not null primary key unique,
+	 id_carro SERIAL PRIMARY KEY,
 	 comprador varchar(30),
 	 cantidad int not null,
 	 estado varchar(1),
@@ -69,26 +69,27 @@ create table tipoenvio(
 
 
 create table compra(
-	 id_compra int not null primary key unique,
-	 direccionEnvio varchar(25),
+	 id_compra SERIAL PRIMARY KEY,
+	 direccion varchar(25),
 	 tipo varchar(30),
-	 metodo varchar(30),
+	 tarjeta int,
+	 ciudad varchar(30),
+	 pais varchar(30),
 	 estado varchar(1),
 	 foreign key (tipo)
 	 references tipoenvio(tipo),
+         foreign key (tarjeta)
+	 references tarjeta(tarjeta),
 	 foreign key (id_compra)
 	 references carroCompra(id_carro)
 );
 
-create table tarcredito(
-	 id_numero int not null primary key unique,
+create table tarjeta(
+	 id_numero int not null primary key,
 	 tipo varchar(30),
-	 mes date,
-	 expiración int not null,
-	 codigo int not null,
-	 compra int not null,
-	 foreign key (compra)
-	 references compra(id_compra)
+	 nombre varchar(30),
+	 expiración varchar(30),
+	 cvv int not null,
 );
 
 
@@ -119,7 +120,7 @@ create table comentario(
 
 create table variante(
 	 id_variante int not null primary key unique,
-     foto varchar(500)[],
+     	 foto varchar(500)[],
 	 color varchar(40),
 	 estado varchar(1),
 	 stock int,
@@ -129,9 +130,10 @@ create table variante(
 );
 
 create table item(
-	id_item int not null primary key unique,
+	id_item SERIAL PRIMARY KEY,
 	variante int not null,
 	id_carro int,
+	cantidad int,
 	foreign key (id_carro)
 	references carroCompra(id_carro),
 	foreign key (variante)
